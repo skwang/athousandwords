@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'atw_app',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -132,9 +133,9 @@ USE_TZ = True
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 STATIC_PATH = os.path.join(BASE_DIR,'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     STATIC_PATH,
-)
+]
 
 # Redirects non-logged in users to this when accessing a non-logged in domain
 LOGIN_URL = '/'
