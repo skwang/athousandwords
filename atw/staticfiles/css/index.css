@@ -1,0 +1,357 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/*!
+ * CSS adapted from Start Bootstrap - Stylish Portfolio Bootstrap Theme (http://startbootstrap.com)
+ * which is code licensed under the Apache License v2.0.
+ */
+
+.url-input-div {
+    padding: 0px 10px 0px 10px;
+    width:250px;
+    color:black;
+    text-align:center;
+    font-size:14px;
+}
+
+.url-input{
+    width:100%;
+    margin-bottom: 3px;
+}
+
+h2 {
+    font-size:50px;
+
+}
+
+/* Global Styles */
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.title {
+    font-family: 'Lato',"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-bottom: 5%;
+}
+
+
+/* Added to make the bootbox dialog bigger */
+@media (min-width: 768px) {
+  .bootbox > .modal-dialog {
+    width: 768px;
+    margin: 30px auto;
+  }
+}
+
+.tutorial {
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.storybox-title {
+  color:black; 
+}
+
+.storybox {
+    color:black;
+    padding-left:10px;
+}
+
+#storybox-question {
+    color:black; 
+    padding-left:10px;
+}
+
+
+#storybox-author {
+    text-align: right;
+}
+
+#storybox-text {
+    padding-left:20px;
+    padding-right:20px;
+    margin-bottom: 0;
+}
+
+#fullstoryText {
+    margin-left: 20px;
+    width:90%
+}
+
+/* For making the svg resizable */
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-top:40%;
+    padding-bottom: 40%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+/* CSS from original file*/
+
+.text-vertical-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.text-vertical-center h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 4.5em;
+    font-weight: 700;
+    
+}
+
+/* Custom Button Styles */
+
+.btn-dark {
+    border-radius: 0;
+    color: #fff;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active {
+    color: #fff;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.btn-start {
+    border-radius: 5;
+    color: #e9e9e9;
+    background-color: rgba(255,143,0,0.85);  /* This is princeton orange */
+    /*background-color: rgba(84,84,84,0.85); *//* This is a dark grey */
+
+}
+
+.btn-start:hover,
+.btn-start:focus,
+.btn-start:active {
+    color: #e9e9e9;
+    background-color: rgba(255,143,0,0.95);  /* This is princeton orange */
+    /*background-color: rgba(84,84,84,0.95); *//* This is a dark grey */
+}
+
+.btn-light {
+    border-radius: 0;
+    color: #333;
+    background-color: rgb(255,255,255);
+}
+
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active {
+    color: #333;
+    background-color: rgba(255,255,255,0.8);
+}
+
+/* Custom Horizontal Rule */
+
+hr.small {
+    max-width: 100px;
+}
+
+/* Side Menu */
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    margin-right: -250px;
+    overflow-y: auto;
+    background: #222;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 55px;
+    font-size: 18px;
+    line-height: 55px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+#menu-toggle {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#sidebar-wrapper.active {
+    right: 250px;
+    width: 250px;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+.toggle {
+    margin: 5px 5px 0 0;
+}
+
+/* Header */
+
+.column-box {
+  width:95%;
+}
+
+.column-top-padding {
+  padding-top: 10% !important;
+}
+
+.header {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(../img/bg1.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.header .text-gray {
+    /*color:#e9e9e9;*/
+    color:rgba(233,233,233, 0.95);
+}
+
+/* About */
+
+.about {
+    padding: 50px 0;
+}
+
+/* Services */
+
+.services {
+    padding: 50px 0;
+}
+
+.service-item {
+    margin-bottom: 30px;
+}
+
+/* Callout */
+
+.callout {
+    display: table;
+    width: 100%;
+    height: 400px;
+    color: #fff;
+    background: url(../img/callout.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+/* Portfolio */
+
+.portfolio {
+    padding: 50px 0;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.img-portfolio {
+    margin: 0 auto;
+}
+
+.img-portfolio:hover {
+    opacity: 0.8;
+}
+
+/* Call to Action */
+
+.call-to-action {
+    padding: 50px 0;
+}
+
+.call-to-action .btn {
+    margin: 10px;
+}
+
+/* Map */
+
+.map {
+    height: 500px;
+}
+
+@media(max-width:768px) {
+    .map {
+        height: 75%;
+    }
+}
+
+/* Footer */
+
+footer {
+    padding: 100px 0;
+}
