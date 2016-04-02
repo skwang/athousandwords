@@ -134,9 +134,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 STATIC_PATH = os.path.join(BASE_DIR,'static')
 STATIC_ROOT = STATIC_PATH
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    STATIC_PATH,
-]
+STATICFILES_DIRS = []
 
 # Redirects non-logged in users to this when accessing a non-logged in domain
 LOGIN_URL = '/'
