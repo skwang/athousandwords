@@ -4,9 +4,30 @@
  * which is code licensed under the Apache License v2.0.
  */
 
+#user-img {
+    width:100%;
+}
+
 .url-input-div {
     padding: 0px 10px 0px 10px;
+    color:black;
+    text-align:center;
+    font-size:14px;
+}
+
+.dropdown-quote {
+    width:100%;
+}
+
+.dropdown-input {
     width:250px;
+    text-align:center;
+
+}
+
+.quote-div {
+    padding: 10px 10px 10px 10px;
+    
     color:black;
     text-align:center;
     font-size:14px;

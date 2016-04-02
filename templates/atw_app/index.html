@@ -44,17 +44,29 @@
                         <span class="dropdown">
                             <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"
                             style="color: white; text-decoration: none;">picture</a>
-                            <ul class="dropdown-menu">
-                              <li style="height:55px">
+                            <ul class="dropdown-menu dropdown-input">
+                              <li>
                                 <div class="url-input-div">
-                                    <input class="url-input" id="url-input-id" type="text" placeholder="Paste an image URL" required="True">
+                                    <input class="url-input" id="url-input-id" type="text" placeholder="Paste an image url..." required="True">
                                     <btn class="btn btn-success btn-sm" id="upload-url-btn" type="submit">Upload</btn>
                                 </div>
                               </li>
                             </ul>
                         </span>
                         <span> is worth </span>
-                        <span id="quote-placeholder">a thousand words</span>
+                        <span class="dropdown" id="quote-placeholder">
+                            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"
+                            style="color: white; text-decoration: none;">a thousand words</a>
+                            <ul class="dropdown-menu dropdown-quote">
+                              <li>
+                                <div class="quote-div">
+                                    <span id="quote-span">No photo selected yet!</span>
+                                    <img id="user-img" src=""/>
+                                    
+                                </div>
+                              </li>
+                            </ul>
+                        </span>
                     </h2>
                 </div>
                 
@@ -74,11 +86,22 @@
 
             var quote;
             var speaker;
+            var valid;
             $.when($.get('/generate-quote/', {url: url}, function(result){
                 quote = result['quote'];
                 speaker = result['speaker'];
+                valid =result['valid'];
             })).then(function(){
-
+                $("#quote-placeholder").addClass('open');
+                if (!valid) {
+                    urlspan = '<span id="url-span">' + url  + '</span>';
+                    $("#quote-span").html('Error: ' + urlspan + ' was not recognized as a valid image url.');
+                    $("#url-span").css("color", "red");
+                }
+                else {
+                    $('#user-img').attr("src",url);
+                    $("#quote-span").html(quote + ' - ' + speaker);
+                }
             });
 
         });
