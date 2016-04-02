@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>a thousand words</title>
+    <meta name="description" content="Hackprinceton Spring 2016">
+    <meta name="author" content="skwang">
+<!--     <link rel="shortcut icon" type="image/x-icon" href=" {% static "img/home-icon.png" %}"> -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="{% static "css/index.css" %}" rel="stylesheet">
+    <link href="{% static "css/landing-page.css" %}" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.8/d3.min.js"></script>
+
+    <!-- Bootbox -->
+    <script type="text/javascript" src="{% static "js/bootbox.min.js" %}"></script>
+
+    <!-- For the search bar -->
+    <link rel="shortcut icon" href="../favicon.ico"> 
+    <link rel="stylesheet" type="text/css" href="{% static "css/default.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/component.css" %}" />
+    <script src="{% static "js/modernizr.custom.js" %}"></script>
+    
+</head>
+
+<body>
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            
+            <div class="column-box">
+                <div class="column">
+                    <h2>
+                        <span>a</span> 
+                        <span class="dropdown">
+                            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"
+                            style="color: white; text-decoration: none;">picture</a>
+                            <ul class="dropdown-menu">
+                              <li style="height:55px">
+                                <div class="url-input-div">
+                                    <input class="url-input" id="url-input-id" type="text" placeholder="Paste an image URL" required="True">
+                                    <btn class="btn btn-success btn-sm" id="upload-url-btn" type="submit">Upload</btn>
+                                </div>
+                              </li>
+                            </ul>
+                        </span>
+                        <span> is worth </span>
+                        <span id="quote-placeholder">a thousand words</span>
+                    </h2>
+                </div>
+                
+        
+                
+            </div>
+        </div>
+    </header>
+
+    <script>
+        
+
+        $('#upload-url-btn').click(function(e){
+            e.preventDefault();
+            var url = $("#url-input-id").val();
+            console.log(url);
+
+            var quote;
+            var speaker;
+            $.when($.get('/generate-quote/', {url: url}, function(result){
+                quote = result['quote'];
+                speaker = result['speaker'];
+            })).then(function(){
+
+            });
+
+        });
+    </script>
+</body>
+
+
+</html>
