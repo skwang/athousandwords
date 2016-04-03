@@ -93,6 +93,7 @@ def findQuoteFromTag(tags, probabilities):
 	currdir = os.path.dirname(os.path.realpath(__file__))
 	with open(currdir + '/quotedict.json') as data_file:    
 		dictionary = json.load(data_file)
+	# print type(dictionary)
 
 
 	#List of possible quotes to use
@@ -107,7 +108,7 @@ def findQuoteFromTag(tags, probabilities):
 		tag = tags[i];
 		#If it's in the dictionary, that means there is at least one quote that has that token.
 		#All quotes with this token are now possibilities for this image
-		if tag in dictionary:
+		if tag in dictionary.keys():
 			quotes = dictionary[tag];
 			#Get all quotes with this token
 			for quote in quotes:
