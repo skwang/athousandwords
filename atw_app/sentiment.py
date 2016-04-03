@@ -5,6 +5,7 @@ import collections;
 import random;
 import operator;
 import os
+nltk.download('punkt')
 
 dictionary = {}
 sentences = []
