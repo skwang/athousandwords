@@ -97,10 +97,13 @@
                     urlspan = '<span id="url-span">' + url  + '</span>';
                     $("#quote-span").html('Error: ' + urlspan + ' was not recognized as a valid image url.');
                     $("#url-span").css("color", "red");
+                    $('#user-img').attr("src","");
                 }
                 else {
                     $('#user-img').attr("src",url);
-                    $("#quote-span").html(quote + ' - ' + speaker);
+                    quotespan = '<span class="quote-inner-span">' + quote + '</span>';
+                    speakerspan = '<span class="speaker-inner-span"> - ' + speaker + '</span>';
+                    $("#quote-span").html(quotespan + speakerspan);
                 }
             });
 

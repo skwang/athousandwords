@@ -8,6 +8,15 @@
     width:100%;
 }
 
+.quote-inner-span {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.speaker-inner-span {
+    font-weight: 500;
+}
+
 .url-input-div {
     padding: 0px 10px 0px 10px;
     color:black;
