@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from clarifai.client import ClarifaiApi
 from urlparse import urlparse
 import httplib
+from sentiment import generateQuote
 
 
 def index(request):
@@ -16,9 +17,11 @@ def generate_quote(request):
         valid = False
         return JsonResponse({'quote':quote, 'speaker':speaker, 'valid':valid})
     else: 
-        # tags, probs = get_tags_and_probs(url)
-        quote = 'The fattest chicken is the first to go'
-        speaker = 'They'
+        #tags, probs = get_tags_and_probs(url)
+        #quote = generateQuote(tags, probs)
+        quote = "Creative force, like a musical composer, goes on unweariedly repeating a simple air or theme, now high, now low, in solo, in chorus, ten thousand times reverberated, till it fills earth and heaven with the chant."
+        #print quote
+        speaker = 'Anonymous'
         valid = True
         return JsonResponse({'quote':quote, 'speaker':speaker, 'valid':valid})
 
@@ -27,8 +30,8 @@ def get_tags_and_probs(url):
     result = clarifai_api.tag_image_urls(url)
     tags = result['results'][0]['result']['tag']['classes']
     probs = result['results'][0]['result']['tag']['probs']
-    print tags
-    print probs
+    #print tags
+    #print probs
     return tags, probs
 
 # Helper method to verify if a given string url points to an image

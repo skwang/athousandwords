@@ -41,7 +41,7 @@
                 <div class="column">
                     <h2>
                         <span>a</span> 
-                        <span class="dropdown">
+                        <span class="dropdown" id="input-dropdown">
                             <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"
                             style="color: white; text-decoration: none;">picture</a>
                             <ul class="dropdown-menu dropdown-input">
@@ -87,12 +87,14 @@
             var quote;
             var speaker;
             var valid;
+            
             $.when($.get('/generate-quote/', {url: url}, function(result){
                 quote = result['quote'];
                 speaker = result['speaker'];
                 valid =result['valid'];
             })).then(function(){
-                $("#quote-placeholder").addClass('open');
+                $("#quote-placeholder").addClass("open");
+
                 if (!valid) {
                     urlspan = '<span id="url-span">' + url  + '</span>';
                     $("#quote-span").html('Error: ' + urlspan + ' was not recognized as a valid image url.');
@@ -101,9 +103,9 @@
                 }
                 else {
                     $('#user-img').attr("src",url);
-                    quotespan = '<span class="quote-inner-span">' + quote + '</span>';
-                    speakerspan = '<span class="speaker-inner-span"> - ' + speaker + '</span>';
-                    $("#quote-span").html(quotespan + speakerspan);
+                    quotespan = '<span class="quote-inner-span">"' + quote + '"</span>';
+                    // speakerspan = '<span class="speaker-inner-span"> - ' + speaker + '</span>';
+                    $("#quote-span").html(quotespan);
                 }
             });
 
