@@ -5,10 +5,12 @@ import collections;
 import random;
 import operator;
 import os
+import json
+# failed attempts to fix:
 # nltk.download('all') # run this in heroku python terminal
-nltk.data.path.append('./nltk_data/') # fix for heroku??
+#nltk.data.path.append('./nltk_data/') # fix for heroku??
 
-dictionary = {}
+dictionary = {} # depreciated global
 sentences = []
 
 #Read csv and create list from it
@@ -47,20 +49,32 @@ def getQuoteSubject():
 		added = [];
 
 		for t in tagged:
+			tnew = (unicode(t[0], errors='ignore'), t[1])
+			t = tnew
 			#If not yet added and a signifcant token (e.g. not a punctuation mark, not a letter, etc.)
 			if len(t[0]) > 1 and t[0].lower() not in added:
 				#If the token isn't in the dictionary yet, add it
 				if t[0] not in dictionary:
 					temp = [];
-					temp.append(sentence)
+					try:
+						temp.append(unicode(sentence, errors='ignore'))
+					except:
+						print sentence
 					dictionary[t[0]] = temp;
 				#If it's already in the dictionary, append it to the list of quotes associated with it
 				else:
 					temp = dictionary[t[0]];
-					temp.append(sentence);
+					
+					try:
+						temp.append(unicode(sentence, errors='ignore'));
+					except:
+						print sentence
 					dictionary[t[0]] = temp;
 
 				added.append(t[0].lower());
+	# save it as output json, so we only need to run this whenever we update quote db
+	with open('quotedict.json', 'w') as fp:
+		json.dump(dictionary, fp)
 
 #If you want an ordered dictionary to print quotes into a new csv file ordered by token
 #NOTE: repeats possible
@@ -75,8 +89,10 @@ def printOrderedDict():
 #Given tags and probabilities of a picture, find a quote which has the most tokens matching 
 #the tags, weighting for probability of the tag being correct
 def findQuoteFromTag(tags, probabilities):
-	global dictionary;
 	global sentences;
+	with open('quotedict.json') as data_file:    
+		dictionary = json.load(data_file)
+
 
 	#List of possible quotes to use
 	possible_quotes = [];
@@ -120,7 +136,8 @@ def generateQuote(tags, probabilities):
 	#Read in csv of quotes
 	getSentences();
 	#Get the tokens of each quote and create dictionary
-	getQuoteSubject();
+	# getQuoteSubject(); # only need to run once now
 	#Given a picture's tags, return a quote with as many matching tags (weighted by probability) as possible
+	# print findQuoteFromTag(tags, probabilities);
 	return findQuoteFromTag(tags, probabilities);
-# main(["small", "apple", "duck"], [.1, .9, .3]);
+generateQuote(["small", "apple", "duck"], [.1, .9, .3]);
