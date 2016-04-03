@@ -5,7 +5,8 @@ import collections;
 import random;
 import operator;
 import os
-nltk.download('punkt')
+# nltk.download('all') # run this in heroku python terminal
+nltk.data.path.append('./nltk_data/') # fix for heroku??
 
 dictionary = {}
 sentences = []
