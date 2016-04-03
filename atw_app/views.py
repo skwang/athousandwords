@@ -17,10 +17,10 @@ def generate_quote(request):
         valid = False
         return JsonResponse({'quote':quote, 'speaker':speaker, 'valid':valid})
     else: 
-        #tags, probs = get_tags_and_probs(url)
-        #quote = generateQuote(tags, probs)
-        quote = "Creative force, like a musical composer, goes on unweariedly repeating a simple air or theme, now high, now low, in solo, in chorus, ten thousand times reverberated, till it fills earth and heaven with the chant."
-        #print quote
+        tags, probs = get_tags_and_probs(url)
+        quote = generateQuote(tags, probs)
+        # quote = "Creative force, like a musical composer, goes on unweariedly repeating a simple air or theme, now high, now low, in solo, in chorus, ten thousand times reverberated, till it fills earth and heaven with the chant."
+        # print quote
         speaker = 'Anonymous'
         valid = True
         return JsonResponse({'quote':quote, 'speaker':speaker, 'valid':valid})
