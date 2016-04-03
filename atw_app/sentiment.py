@@ -90,7 +90,8 @@ def printOrderedDict():
 #the tags, weighting for probability of the tag being correct
 def findQuoteFromTag(tags, probabilities):
 	global sentences;
-	with open('quotedict.json') as data_file:    
+	currdir = os.path.dirname(os.path.realpath(__file__))
+	with open(currdir + '/quotedict.json') as data_file:    
 		dictionary = json.load(data_file)
 
 
